@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.11)
 project(log VERSION 1.0.0 LANGUAGES C)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-set(DEFAULT_BUILD_TYPE "Debug")
 
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+  set(DEFAULT_BUILD_TYPE "Debug")
   message(STATUS "Setting build type to '${DEFAULT_BUILD_TYPE}' as none was specified.")
   set(CMAKE_BUILD_TYPE "${DEFAULT_BUILD_TYPE}" CACHE STRING "Choose the type of build." FORCE)
   # Set the possible values of build type for cmake-gui
