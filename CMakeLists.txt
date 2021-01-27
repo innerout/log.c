@@ -5,6 +5,7 @@ project(
   LANGUAGES C)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+set(CMAKE_C_CLANG_TIDY "")
 option(BUILD_SHARED_LIBS
        "Build shared libraries (.dll/.so) instead of static ones (.lib/.a)" OFF)
 
