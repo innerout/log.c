@@ -42,6 +42,15 @@ target_include_directories(
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME log
                                                  CLEAN_DIRECT_OUTPUT 1)
+
+find_program(iwyu_path NAMES include-what-you-use iwyu iwyu-tool)
+if(iwyu_path)
+  set_property(TARGET ${PROJECT_NAME} PROPERTY C_INCLUDE_WHAT_YOU_USE
+                                               ${iwyu_path})
+else()
+  message("Could not find the program include-what-you-use")
+endif()
+
 install(
   TARGETS ${PROJECT_NAME}
   EXPORT log
