@@ -21,20 +21,17 @@
  */
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <stdarg.h>
-#include <string.h>
 #include <time.h>
 #include <log.h>
 
-static struct {
+	static struct {
   void *udata;
   log_LockFn lock;
   FILE *fp;
   int level;
   int quiet;
 } L;
-
 
 static const char *level_names[] = {
   "TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL"
