@@ -40,6 +40,8 @@ target_include_directories(
          $<INSTALL_INTERFACE:include>
   PRIVATE src)
 
+add_definitions(-DLOG_USE_COLOR)
+
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME log
                                                  CLEAN_DIRECT_OUTPUT 1)
 
