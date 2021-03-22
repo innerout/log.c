@@ -10,6 +10,8 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdarg.h>
+
 #define LOG_VERSION "0.1.0"
 
 typedef struct {
