@@ -1,0 +1,17 @@
+name: Integrate log library with Kreon KV
+on: [push]
+jobs:
+  build-kreon:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare environment
+        run: sudo apt-get install -y libnuma-dev libboost-dev
+
+      - name: Download Kreon
+        run: git clone https://github.com/CARV-ICS-FORTH/kreon.git 
+
+      - name: Configure Kreon
+        run: cd kreon && cmake -Bbuild -H.
+
+      - name: Build Kreon
+        run: cd kreon/build && make all
