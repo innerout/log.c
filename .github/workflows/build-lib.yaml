@@ -1,0 +1,9 @@
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  build-lib:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Configure build
+        run: cmake -Bbuild -H$GITHUB_WORKSPACE     
