@@ -1,4 +1,18 @@
+ci:
+    skip: [check-jsonschema]
+
+repos:
 -   repo: https://github.com/cheshirekow/cmake-format-precommit
     rev: v0.6.9
     hooks:
     - id: cmake-format
+
+-   repo: https://github.com/sirosen/check-jsonschema
+    rev: 0.3.0
+    hooks:
+        - id: check-jsonschema
+          name: "Check Github Workflows"
+          language: python
+          files: ^\.github/workflows/
+          types: [yaml]
+          args: ["--schemafile", "https://json.schemastore.org/github-workflow"]
