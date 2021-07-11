@@ -5,7 +5,6 @@ project(
   LANGUAGES C)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_C_CLANG_TIDY "")
 option(BUILD_SHARED_LIBS
        "Build shared libraries (.dll/.so) instead of static ones (.lib/.a)" OFF)
@@ -32,7 +31,6 @@ include(GNUInstallDirs)
 set(SOURCE_FILES src/log.c)
 
 add_library(${PROJECT_NAME} ${SOURCE_FILES})
-set_property(TARGET ${PROJECT_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_include_directories(
   ${PROJECT_NAME}
   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
