@@ -5,9 +5,23 @@ A simple logging library implemented in C99
 
 
 ## Usage
-**[log.c](src/log.c?raw=1)** and **[log.h](src/log.h?raw=1)** should be dropped
-into an existing project and compiled along with it. The library provides 6
-function-like macros for logging:
+
+You can include the code below in your `cmake` project and `#include <log.h>` in your sources.
+
+``` cmake
+FetchContent_Declare(log # Recommendation: Stick close to the original name.
+                     GIT_REPOSITORY https://github.com/innerout/log.c.git)
+FetchContent_GetProperties(log)
+if(NOT log_POPULATED)
+  FetchContent_Populate(log)
+  add_subdirectory(${log_SOURCE_DIR} ${log_BINARY_DIR})
+  include_directories(${log_SOURCE_DIR}/include)
+  FetchContent_MakeAvailable(log)
+endif()
+target_link_libraries(YOUR_LIB_NAME log)
+```
+
+The library provides 6 function-like macros for logging:
 
 ```c
 log_trace(const char *fmt, ...);
