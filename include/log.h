@@ -13,6 +13,14 @@
 #include <stdarg.h>
 
 #define LOG_VERSION "0.1.0"
+#if defined (__GNUC__) && !defined(__clang__)
+#define COMPILER_WARNING __attribute__((format (printf, 4, 5)))
+#elif defined(__clang__)
+#define COMPILER_WARNING __attribute__((__format__ (__printf__, 4, 5)))
+#else
+#define COMPILER_WARNING
+#pragma message "Unknown compiler no checking for format arguments!\n"
+#endif
 
 typedef struct {
   va_list ap;
@@ -43,6 +51,6 @@ void log_set_quiet(bool enable);
 int log_add_callback(log_LogFn fn, void *udata, int level);
 int log_add_fp(FILE *fp, int level);
 
-void log_log(int level, const char *file, int line, const char *fmt, ...);
+COMPILER_WARNING void log_log(int level, const char *file, int line, const char *fmt, ...);
 
 #endif
