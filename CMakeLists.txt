@@ -8,9 +8,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_C_CLANG_TIDY "")
 option(BUILD_SHARED_LIBS
        "Build shared libraries (.dll/.so) instead of static ones (.lib/.a)" OFF)
-option(DISABLE_LOGGING
-       "Disable all logging."
-       OFF)
+option(DISABLE_LOGGING "Disable all logging." OFF)
 
 # Set a default build type if none was specified
 set(default_build_type "Release")
