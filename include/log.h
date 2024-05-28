@@ -11,11 +11,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdarg.h>
-#if __has_include(<bits/types/struct_tm.h>)
-#include <bits/types/struct_tm.h>
-#else
 #include <time.h>
-#endif
 
 #define LOG_VERSION "0.1.0"
 #if defined (__GNUC__) && !defined(__clang__)
